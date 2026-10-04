@@ -1,5 +1,6 @@
 import { seedClients } from './data/seedClients'
 import './App.css'
+import ClientCard from './components/ClientCard'
 
 function App() {
   return (
@@ -8,7 +9,7 @@ function App() {
       <p>{seedClients.length} clients</p>
       <ul>
         {seedClients.map((client) => (
-          <li key={client.id}>{client.businessName}</li>
+          <ClientCard key={client.id} client={client} />
         ))}
       </ul>
     </main>
