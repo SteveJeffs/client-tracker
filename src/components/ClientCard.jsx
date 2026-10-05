@@ -10,6 +10,7 @@ function ClientCard(props) {
             <p>Care Plan: {props.client.carePlanTier}</p>
             <p>Next Action: {props.client.nextAction}</p>
             
+            {props.client.notes && <p>Notes: {props.client.notes}</p>}
         </li>
     )
 }
