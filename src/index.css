@@ -27,6 +27,6 @@ body {
 
 h1,
 h2 {
-  font-fanily: var(--font-heading);
+  font-family: var(--font-heading);
   line-height: 1.2;
 }
