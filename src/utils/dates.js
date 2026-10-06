@@ -22,3 +22,17 @@ export function renewalLabel(dataString) {
 
     return `Renews in ${days} days`
 }
+
+export function renewalUrgency(dateString) {
+    const days = daysUntil(dateString)
+
+    if (days <0) {
+        return 'overdue'
+    }
+
+    if (days <=30) {
+        return 'soon'
+    }
+
+    return 'ok'
+}

@@ -17,3 +17,12 @@
     color: var(--text-muted);
 }
 
+.client-card .renewal-overdue {
+    color: #b42318;
+    font-weight: 600;
+}
+
+.client-card .renewal-soon {
+    color: #f97316;
+    font-weight: 600;
+}
