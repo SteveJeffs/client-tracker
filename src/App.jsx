@@ -7,7 +7,7 @@ function App() {
     <main>
       <h1>Client tracker</h1>
       <p>{seedClients.length} clients</p>
-      <ul>
+      <ul className="client-list">
         {seedClients.map((client) => (
           <ClientCard key={client.id} client={client} />
         ))}

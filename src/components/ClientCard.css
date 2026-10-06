@@ -1,0 +1,19 @@
+.client-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--purple);
+    border-radius: 12px;
+    padding: 1.25rem;
+}
+
+.client-card h2 {
+    margin: 0 0 0.75rem;
+    font-size: 1.15rem;
+}
+
+.client-card p {
+    margin: 0.25rem 0;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
