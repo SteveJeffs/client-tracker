@@ -46,3 +46,23 @@ export function formatDate(dateString) {
         year: 'numeric',
     })
 }
+
+export function carePlanLabel(startDateString) {
+    const termEnd = new Date(startDateString + 'T00:00:00')
+    termEnd.setMonth(termEnd.getMonth() + 3)
+
+    const today = new Date()
+    today.sethours(0, 0, 0, 0)
+
+    if (termEnd <= today) {
+        return 'Rolling monthly'
+    }
+
+    const endText = termEnd.toLocaleDateString('en-GB', {
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric',
+    })
+
+    return `Minimum term ends ${endText}`
+}

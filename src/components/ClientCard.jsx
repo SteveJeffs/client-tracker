@@ -1,6 +1,5 @@
 import './ClientCard.css'
-import { daysUntil } from '../utils/dates'
-import { renewalLabel, renewalUrgency, formatDate } from '../utils/dates'
+import { renewalLabel, renewalUrgency, formatDate, carePlanLabel } from '../utils/dates'
 
 function ClientCard(props) {
     return (
@@ -12,6 +11,7 @@ function ClientCard(props) {
             <p>Contact Number: {props.client.contactNumber}</p>
             <p>Website Package: {props.client.websitePackage}</p>
             <p>Care Plan: {props.client.carePlanTier}</p>
+            {props.client.startDate && props.client.carePlanTier !== 'None' && <p>{carePlanLabel(props.client.startDate)}</p>}
             {props.client.startDate && <p>Started: {formatDate(props.client.startDate)}</p>}
             {props.client.domainRenewalDate && <p className={`renewal-${renewalUrgency(props.client.domainRenewalDate)}`}>Domain: {renewalLabel(props.client.domainRenewalDate)}</p>}
             <p>Next Action: {props.client.nextAction}</p>
