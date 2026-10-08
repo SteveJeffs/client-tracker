@@ -18,11 +18,11 @@ function App() {
       <p>{seedClients.length} clients</p>
       <p>Showing: {statusFilter}</p>
       <div className="filters">
-        <button onClick={() => setStatusFilter('All')}>All</button>
-        <button onClick={() => setStatusFilter('Lead')}>Lead</button>
-        <button onClick={() => setStatusFilter('Building')}>Building</button>
-        <button onClick={() => setStatusFilter('Live')}>Live</button>
-        <button onClick={() => setStatusFilter('Cancelled')}>Cancelled</button>
+        <button className={statusFilter === 'All' ? 'active' : ''} onClick={() => setStatusFilter('All')}>All</button>
+        <button className={statusFilter === 'Lead' ? 'active' : ''} onClick={() => setStatusFilter('Lead')}>Lead</button>
+        <button  className={statusFilter === 'Building' ? 'active' : ''} onClick={() => setStatusFilter('Building')}>Building</button>
+        <button  className={statusFilter === 'Live' ? 'active' : ''} onClick={() => setStatusFilter('Live')}>Live</button>
+        <button  className={statusFilter === 'Cancelled' ? 'active' : ''} onClick={() => setStatusFilter('Cancelled')}>Cancelled</button>
       </div>
       <ul className="client-list">
         {visibleClients.map((client) => (
