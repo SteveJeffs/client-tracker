@@ -52,7 +52,7 @@ export function carePlanLabel(startDateString) {
     termEnd.setMonth(termEnd.getMonth() + 3)
 
     const today = new Date()
-    today.sethours(0, 0, 0, 0)
+    today.setHours(0, 0, 0, 0)
 
     if (termEnd <= today) {
         return 'Rolling monthly'
