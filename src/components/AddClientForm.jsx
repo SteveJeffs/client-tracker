@@ -14,16 +14,16 @@ function AddClientForm() {
             <input
                 id="businessName"
                 type="text"
-                value={businessName}
-                onChange={(event) => setBusinessName(event.target.value)}
+                value={form.businessName}
+                onChange={(event) => setForm({ ...form, businessName: event.target.value})}
             />
 
             <label htmlFor="contactName">Contact name</label>
             <input
             id="contactName"
             type="text"
-            value={contactName}
-            onChange={(event) => setContactName(event.target.value)}
+            value={form.contactName}
+            onChange={(event) => setForm({ ...form, contactName: event.target.value})}
             />
         </form>
     )
