@@ -1,4 +1,5 @@
 import { useState } from 'react'
+const addOnOptions = ['Copywriting', 'Domain name', 'Professional email', 'Booking intergration', 'Priority build']
 
 function AddClientForm() {
     const [form, setForm] = useState({
@@ -12,8 +13,17 @@ function AddClientForm() {
         startDate: '',
         domainRenewalDate: '',
         notes: '',
+        addOns: [],
 
     })
+
+    function toggleAddOn(option) {
+        if (form.addOns.includes(option)) {
+            setForm({ ...form, addOns: form.addOns.filter((addOn) => addOn !== option) })
+        } else {
+            setForm({ ...form, addOns: [...form.addOns, option] })
+        }
+    }
 
     return (
         <form className="add-client-form">
@@ -78,6 +88,19 @@ function AddClientForm() {
                 <option value="Annual care">Annual care</option>
             </select>
 
+            <fieldset>
+                <legend>Add-ons</legend>
+                {addOnOptions.map((option) => (
+                    <label key={option}>
+                        <input
+                            type="checkbox"
+                            checked={form.addOns.includes(option)}
+                            onChange={() => toggleAddOns(option)}
+                        />
+                        {option}
+                    </label>
+                ))}
+            </fieldset>
 
             <label htmlFor="nextAction">Next Action</label>
             <input
