@@ -11,6 +11,7 @@ function AddClientForm() {
         nextAction: '',
         startDate: '',
         domainRenewalDate: '',
+        notes: '',
 
     })
 
@@ -100,6 +101,14 @@ function AddClientForm() {
                 type="date"
                 value={form.domainRenewalDate}
                 onChange={(event) => setForm({ ...form, domainRenewalDate: event.target.value })}
+            />
+
+            <label htmlFor="notes">Notes</label>
+            <textarea
+                id="notes"
+                row="3"
+                value={form.notes}
+                onChange={(event) => setForm({ ...form, note: event.target.value })}
             />
 
         </form>
