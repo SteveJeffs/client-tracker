@@ -1,7 +1,7 @@
 import { useState } from 'react'
-const addOnOptions = ['Copywriting', 'Domain name', 'Professional email', 'Booking intergration', 'Priority build']
+const addOnOptions = ['Copywriting', 'Domain name', 'Professional email', 'Booking integration', 'Priority build']
 
-function AddClientForm() {
+function AddClientForm(props) {
     const [form, setForm] = useState({
         businessName: '',
         status: 'Lead',
@@ -25,8 +25,13 @@ function AddClientForm() {
         }
     }
 
+    function handleSubmit(event) {
+        event.preventDefault()
+        props.onAdd({ ...form, id: Date.now() })
+    }
+
     return (
-        <form className="add-client-form">
+        <form className="add-client-form" onSubmit={handleSubmit}>
             <h2>Add a client</h2>
 
             <label htmlFor="businessName">Business name</label>
@@ -80,7 +85,7 @@ function AddClientForm() {
             <select
                 id="carePlanTier"
                 value={form.carePlanTier}
-                onChange={(event) => setform({ ...form, carePlanTier: event.target.value })}
+                onChange={(event) => setForm({ ...form, carePlanTier: event.target.value })}
             >
                 <option value="None">None</option>
                 <option value="Hosting only">Hosting only</option>
@@ -95,7 +100,7 @@ function AddClientForm() {
                         <input
                             type="checkbox"
                             checked={form.addOns.includes(option)}
-                            onChange={() => toggleAddOns(option)}
+                            onChange={() => toggleAddOn(option)}
                         />
                         {option}
                     </label>
@@ -129,10 +134,12 @@ function AddClientForm() {
             <label htmlFor="notes">Notes</label>
             <textarea
                 id="notes"
-                row="3"
+                rows="3"
                 value={form.notes}
-                onChange={(event) => setForm({ ...form, note: event.target.value })}
+                onChange={(event) => setForm({ ...form, notes: event.target.value })}
             />
+
+            <button type="submit">Add client</button>
 
         </form>
     )

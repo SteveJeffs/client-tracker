@@ -8,6 +8,10 @@ function App() {
   const [clients, setClients] = useState(seedClients)
   const [statusFilter, setStatusFilter] = useState('All')
 
+function addClient(newClient) {
+  setClients([...clients, newClient])
+}
+
   let visibleClients = clients
 
   if (statusFilter !== 'All') {
@@ -17,7 +21,7 @@ function App() {
   return (
     <main>
       <h1>Client tracker</h1>
-      <AddClientForm />
+      <AddClientForm onAdd={addClient} />
       <p>Showing: {visibleClients.length} of {clients.length} clients</p>
       <div className="filters">
         <button className={statusFilter === 'All' ? 'active' : ''} onClick={() => setStatusFilter('All')}>All</button>
