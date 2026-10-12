@@ -1,21 +1,22 @@
 import { useState } from 'react'
 const addOnOptions = ['Copywriting', 'Domain name', 'Professional email', 'Booking integration', 'Priority build']
 
-function AddClientForm(props) {
-    const [form, setForm] = useState({
-        businessName: '',
-        status: 'Lead',
-        websitePackage: 'Starter',
-        carePlanTier: 'None',
-        contactName: '',
-        contactNumber: '',
-        nextAction: '',
-        startDate: '',
-        domainRenewalDate: '',
-        notes: '',
-        addOns: [],
+const emptyForm = {
+    businessName: '',
+    status: 'Lead',
+    websitePackage: 'Starter',
+    carePlanTier: 'None',
+    contactName: '',
+    contactNumber: '',
+    nextAction: '',
+    startDate: '',
+    domainRenewalDate: '',
+    notes: '',
+    addOns: [],
+}
 
-    })
+function AddClientForm(props) {
+    const [form, setForm] = useState(emptyForm)
 
     function toggleAddOn(option) {
         if (form.addOns.includes(option)) {
@@ -28,6 +29,7 @@ function AddClientForm(props) {
     function handleSubmit(event) {
         event.preventDefault()
         props.onAdd({ ...form, id: Date.now() })
+        setForm(emptyForm)
     }
 
     return (
