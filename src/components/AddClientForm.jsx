@@ -35,11 +35,14 @@ function AddClientForm(props) {
     return (
         <form className="add-client-form" onSubmit={handleSubmit}>
             <h2>Add a client</h2>
+            <p className="form-note">Required</p>
 
-            <label htmlFor="businessName">Business name</label>
+            <label htmlFor="businessName">
+                Business name <span className="required-mark" aria-hidden="true">*</span> </label>
             <input
                 id="businessName"
                 type="text"
+                required
                 value={form.businessName}
                 onChange={(event) => setForm({ ...form, businessName: event.target.value })}
             />
