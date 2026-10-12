@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import './AddclientForm.css'
 const addOnOptions = ['Copywriting', 'Domain name', 'Professional email', 'Booking integration', 'Priority build']
 
 const emptyForm = {
