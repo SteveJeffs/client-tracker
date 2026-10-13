@@ -1,12 +1,29 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { seedClients } from './data/seedClients'
 import ClientCard from './components/ClientCard'
 import AddClientForm from './components/AddClientForm'
 import './App.css'
 
+function loadClients() {
+  try {
+    const saved = localStorage.getItem('clients')
+    return saved ? JSON.parse(saved) : seedClients
+  } catch {
+    return seedClients
+  }
+}
+
 function App() {
-  const [clients, setClients] = useState(seedClients)
+  const [clients, setClients] = useState(loadClients)
   const [statusFilter, setStatusFilter] = useState('All')
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('clients', JSON.stringify(clients))
+    } catch {
+
+    }
+  }), [clients]
 
 function addClient(newClient) {
   setClients([...clients, newClient])
@@ -21,7 +38,8 @@ function addClient(newClient) {
   return (
     <main>
       <h1>Client tracker</h1>
-      <AddClientForm onAdd={addClient} />
+      <AddClientForm onAdd={addClient
+      } />
       <p>Showing: {visibleClients.length} of {clients.length} clients</p>
       <div className="filters">
         <button className={statusFilter === 'All' ? 'active' : ''} onClick={() => setStatusFilter('All')}>All</button>
