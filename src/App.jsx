@@ -29,6 +29,12 @@ function addClient(newClient) {
   setClients([...clients, newClient])
 }
 
+function resetDemo() {
+  if (window.confim('Reset to the demo clients? Anything you have added will be removed')) {
+    setClients(seedClients)
+  }
+}
+
   let visibleClients = clients
 
   if (statusFilter !== 'All') {
@@ -41,6 +47,7 @@ function addClient(newClient) {
       <AddClientForm onAdd={addClient
       } />
       <p>Showing: {visibleClients.length} of {clients.length} clients</p>
+      <button className="reset-button" onclick={resetDemo}>Reset demo</button>
       <div className="filters">
         <button className={statusFilter === 'All' ? 'active' : ''} onClick={() => setStatusFilter('All')}>All</button>
         <button className={statusFilter === 'Lead' ? 'active' : ''} onClick={() => setStatusFilter('Lead')}>Lead</button>
