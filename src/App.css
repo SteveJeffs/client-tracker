@@ -9,7 +9,7 @@ main {
   padding: 0;
   margin: 0;
   display: grid;
-  grid-template: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1rem;
 }
 
@@ -47,3 +47,18 @@ main {
   color: #ffffff;
 }
 
+.reset-button {
+  background: none;
+  color: var(--purple-light);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+}
+
+.reset-button:hover {
+  border-color: var(--purple);
+  color: var(--purple);
+}
