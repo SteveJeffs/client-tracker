@@ -17,7 +17,7 @@ function ClientCard(props) {
             <p>Next Action: {props.client.nextAction}</p>
             {props.client.addOns.length > 0 && <p>Add ons: {props.client.addOns.join(', ')}</p>}
             {props.client.notes && <p>Notes: {props.client.notes}</p>}
-
+            <button className="view-button" onClick={props.onSelect}>View details</button>
 
         </li>
     )

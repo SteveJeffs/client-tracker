@@ -16,6 +16,7 @@ function loadClients() {
 function App() {
   const [clients, setClients] = useState(loadClients)
   const [statusFilter, setStatusFilter] = useState('All')
+  const [selectedId, setSelectedId] = useState(null)
 
   useEffect(() => {
     try {
@@ -23,17 +24,17 @@ function App() {
     } catch {
 
     }
-  }), [clients]
+  }, [clients])
 
-function addClient(newClient) {
-  setClients([...clients, newClient])
-}
-
-function resetDemo() {
-  if (window.confim('Reset to the demo clients? Anything you have added will be removed')) {
-    setClients(seedClients)
+  function addClient(newClient) {
+    setClients([...clients, newClient])
   }
-}
+
+  function resetDemo() {
+    if (window.confirm('Reset to the demo clients? Anything you have added will be removed')) {
+      setClients(seedClients)
+    }
+  }
 
   let visibleClients = clients
 
@@ -44,10 +45,10 @@ function resetDemo() {
   return (
     <main>
       <h1>Client tracker</h1>
-      <AddClientForm onAdd={addClient
-      } />
+      <AddClientForm onAdd={addClient} />
       <p>Showing: {visibleClients.length} of {clients.length} clients</p>
-      <button className="reset-button" onclick={resetDemo}>Reset demo</button>
+      <p>Selected: {selectedId}</p>
+      <button className="reset-button" onClick={resetDemo}>Reset demo</button>
       <div className="filters">
         <button className={statusFilter === 'All' ? 'active' : ''} onClick={() => setStatusFilter('All')}>All</button>
         <button className={statusFilter === 'Lead' ? 'active' : ''} onClick={() => setStatusFilter('Lead')}>Lead</button>
@@ -57,7 +58,7 @@ function resetDemo() {
       </div>
       <ul className="client-list">
         {visibleClients.map((client) => (
-          <ClientCard key={client.id} client={client} />
+          <ClientCard key={client.id} client={client} onSelect={() => setSelectedId(client.id)} />
         ))}
       </ul>
     </main>
