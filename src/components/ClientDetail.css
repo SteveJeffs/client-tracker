@@ -1,8 +1,8 @@
 .client-detail {
     background: var(--surface);
     border: 1px solid var(--border);
-    border-top: 4px solid var(--purple);
-    border-radius: 12px;
+    border-top: var(--strip);
+    border-radius: var(--radius);
     padding: 1.5rem;
     max-width: 720px;
 }
@@ -22,7 +22,7 @@
     font-size: 0.9rem;
     color: var(--text-muted);
     margin-top: 1.5rem;
-    margin-bottom:0.2rem;
+    margin-bottom: 0.2rem;
 }
 
 .client-detail dl {
@@ -41,9 +41,26 @@
 }
 
 .client-detail .renewal-overdue {
-    color: #b42318;
+    color: var(--danger);
 }
 
 .client-detail .renewal-soon {
-    color: #f97316;
+    color: var(--warning);
+}
+
+.delete-button {
+    background: none;
+    color: var(--danger);
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--danger);
+    cursor: pointer;
+    margin-bottom: 1rem;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    padding: 0.6rem 1rem;
+}
+
+.delete-button:hover {
+    background: var(--danger);
+    color: #ffffff;
 }
