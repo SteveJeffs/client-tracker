@@ -1,4 +1,5 @@
 import { formatDate, renewalLabel, renewalUrgency, carePlanLabel } from '../utils/dates'
+import './ClientDetail.css'
 
 function ClientDetail(props) {
     return (
