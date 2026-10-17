@@ -9,6 +9,12 @@
   --font-heading: 'Sora', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
+  --strip: 4px solid var(--purple);
+  --radius: 12px;
+  --radius-small: 8px;
+  --radius-pill: 999px;
+  --danger: #b42318;
+  --warning: #f97316;
 }
 
 *,
