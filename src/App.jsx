@@ -37,6 +37,12 @@ function App() {
     }
   }
 
+  function deleteClient () {
+    if (window.confirm('Delete this client? This cannot be done.')) {
+        setClients(clients.filter((client) => client.id !== id))
+    }
+  }
+
   let visibleClients = clients
 
   if (statusFilter !== 'All') {
@@ -48,7 +54,7 @@ function App() {
   if (selectedClient) {
     return (
       <main>
-        <ClientDetail client={selectedClient} onBack={() => setSelectedId(null)} />
+        <ClientDetail client={selectedClient} onBack={() => setSelectedId(null)} onDelete={() => deleteClient(selectedClient.id)} />
       </main>
     )
   }
