@@ -17,7 +17,7 @@ const emptyForm = {
 }
 
 function AddClientForm(props) {
-    const [form, setForm] = useState(emptyForm)
+    const [form, setForm] = useState(props.intialValues || emptyForm)
 
     function toggleAddOn(option) {
         if (form.addOns.includes(option)) {
@@ -29,13 +29,13 @@ function AddClientForm(props) {
 
     function handleSubmit(event) {
         event.preventDefault()
-        props.onAdd({ ...form, id: Date.now() })
+        props.onAdd({ ...form, id: form.id || Date.now() })
         setForm(emptyForm)
     }
 
     return (
         <form className="add-client-form" onSubmit={handleSubmit}>
-            <h2>Add a client</h2>
+            <h2>{props.title || 'Add a client'}</h2>
             <p className="form-note">Required</p>
 
             <label htmlFor="businessName">
@@ -145,7 +145,12 @@ function AddClientForm(props) {
                 onChange={(event) => setForm({ ...form, notes: event.target.value })}
             />
 
-            <button type="submit">Add client</button>
+            <button type="submit">{props.submitLabel || 'Add client'}</button>
+            {props.onCancel && (
+                <button type="button" className="cancel-button" onClick={props.onCancel}>
+                    Cancel
+                </button>
+            )}
 
         </form>
     )

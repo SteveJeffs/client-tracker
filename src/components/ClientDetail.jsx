@@ -8,6 +8,7 @@ function ClientDetail(props) {
                 Back to all clients
             </button>
             <h2>{props.client.businessName}</h2>
+            <button className="edit-button" onClick={props.onEdit}>Edit</button>
             <button className="delete-button" onClick={props.onDelete}>Delete</button>
             <h3>Contact</h3>
             <dl>

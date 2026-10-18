@@ -18,6 +18,7 @@ function App() {
   const [clients, setClients] = useState(loadClients)
   const [statusFilter, setStatusFilter] = useState('All')
   const [selectedId, setSelectedId] = useState(null)
+  const [isEditing, setIsEditing] = useState(false)
 
   useEffect(() => {
     try {
@@ -37,10 +38,16 @@ function App() {
     }
   }
 
-  function deleteClient () {
-    if (window.confirm('Delete this client? This cannot be done.')) {
-        setClients(clients.filter((client) => client.id !== id))
+  function deleteClient(id) {
+    if (window.confirm('Delete this client? This cannot be undone.')) {
+      setClients(clients.filter((client) => client.id !== id))
+      setSelectedId(null)
     }
+  }
+
+  function updateClient(updatedClient) {
+    setClients(clients.map((client) => (client.id === updatedClient.id ? updatedClient : client)))
+    setIsEditing(false)
   }
 
   let visibleClients = clients
@@ -54,7 +61,22 @@ function App() {
   if (selectedClient) {
     return (
       <main>
-        <ClientDetail client={selectedClient} onBack={() => setSelectedId(null)} onDelete={() => deleteClient(selectedClient.id)} />
+        {isEditing ? (
+          <AddClientForm
+            initialValues={selectedClient}
+            title="Edit client"
+            submitLabel="Save changes"
+            onSave={updateClient}
+            onCancel={() => setIsEditing(false)}
+          />
+        ) : (
+          <ClientDetail
+            client={selectedClient}
+            onBack={() => setSelectedId(null)}
+            onEdit={() => setIsEditing(true)}
+            onDelete={() => deleteClient(selectedClient.id)}
+          />
+        )}
       </main>
     )
   }
@@ -62,7 +84,7 @@ function App() {
   return (
     <main>
       <h1>Client tracker</h1>
-      <AddClientForm onAdd={addClient} />
+      <AddClientForm onSave={addClient} />
       <p>Showing: {visibleClients.length} of {clients.length} clients</p>
       <button className="reset-button" onClick={resetDemo}>Reset demo</button>
       <div className="filters">
