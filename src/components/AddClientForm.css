@@ -7,8 +7,8 @@
     padding: 1.5rem;
     background: var(--surface);
     border: 1px solid var(--border);
-    border-top: 4px solid var(--purple);
-    border-radius: 12px;
+    border-top: var(--strip);
+    border-radius: var(--radius);
 }
 
 .add-client-form h2 {
@@ -37,7 +37,7 @@
     font: inherit;
     padding: 0.6rem 0.75rem;
     border: 1px solid var(--border);
-    border-radius: 8px;
+    border-radius: var(--radius-small);
     background: var(--surface);
     color: var(--text);
 }
@@ -45,15 +45,15 @@
 .add-client-form input:focus,
 .add-client-form select:focus,
 .add-client-form textarea:focus {
-outline: 2px solid var(--purple);
-outline-offset: 1px;
+    outline: 2px solid var(--purple);
+    outline-offset: 1px;
 }
 
 .add-client-form fieldset {
-margin-top: 0.75rem;
-padding: 0.75rem 1rem;
-border: 1px solid var(--border);
-border-radius: 8px;
+    margin-top: 0.75rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-small);
 }
 
 .add-client-form legend {
@@ -86,7 +86,7 @@ border-radius: 8px;
     color: #ffffff;
     background: var(--purple);
     border: none;
-    border-radius: 999px;
+    border-radius: var(--radius-pill);
     cursor: pointer;
 }
 
@@ -97,4 +97,20 @@ border-radius: 8px;
 .add-client-form button:focus-visible {
     outline: 2px solid var(--purple);
     outline-offset: 2px;
+}
+
+.add-client-form .cancel-button {
+    border-radius: var(--radius-pill);
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    font-family: var(--font-body);
+    padding: 0.6rem 1rem;
+}
+
+.add-client-form .cancel-button:hover {
+    background: none;
+    border: 1px solid var(--purple);
+    color: var(--purple);
 }

@@ -64,3 +64,20 @@
     background: var(--danger);
     color: #ffffff;
 }
+
+.edit-button {
+    border-radius: var(--radius-pill);
+    background: none;
+    border: 1px solid var(--purple);
+    color: var(--purple);
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+    margin-right: 0.5rem;
+}
+
+.edit-button:hover {
+    background: var(--purple);
+    color: #ffffff;
+}
