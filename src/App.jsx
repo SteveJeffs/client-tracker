@@ -19,6 +19,7 @@ function App() {
   const [statusFilter, setStatusFilter] = useState('All')
   const [selectedId, setSelectedId] = useState(null)
   const [isEditing, setIsEditing] = useState(false)
+  const [showForm, setShowForm] = useState(false)
 
   useEffect(() => {
     try {
@@ -30,6 +31,7 @@ function App() {
 
   function addClient(newClient) {
     setClients([...clients, newClient])
+    setShowForm(false)
   }
 
   function resetDemo() {
@@ -84,7 +86,8 @@ function App() {
   return (
     <main>
       <h1>Client tracker</h1>
-      <AddClientForm onSave={addClient} />
+      <button className="add-button" onClick={() => setShowForm(true)}>+ Add client</button>
+      {showForm && <AddClientForm onSave={addClient} onCancel={() => setShowForm(false)} />}
       <p>Showing: {visibleClients.length} of {clients.length} clients</p>
       <button className="reset-button" onClick={resetDemo}>Reset demo</button>
       <div className="filters">
