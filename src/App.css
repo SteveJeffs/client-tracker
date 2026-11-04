@@ -26,7 +26,7 @@ main {
   font-weight: 500;
   padding: 0.5rem 1rem;
   border: 1px solid var(--border);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   background: var(--surface);
   color: var(--text);
   cursor: pointer;
@@ -51,7 +51,7 @@ main {
   background: none;
   color: var(--purple-light);
   border: 1px solid var(--border);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   font-family: var(--font-body);
   font-size: 0.75rem;
   padding: 0.6rem 1rem;
@@ -61,4 +61,25 @@ main {
 .reset-button:hover {
   border-color: var(--purple);
   color: var(--purple);
+}
+
+.add-button {
+  margin-bottom: 1.25rem;
+  padding: 0.65rem 1.4rem;
+  font: inherit;
+  font-weight: 600;
+  color: #ffffff;
+  background: var(--purple);
+  border: none;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+}
+
+.add-button:hover {
+  background: var(--purple-light);
+}
+
+.add-button:focus-visible {
+  outline: 2px solid var(--purple);
+  outline-offset: 2px;
 }
