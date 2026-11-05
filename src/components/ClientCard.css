@@ -66,3 +66,25 @@
     background: #f1f1f4;
     color: var(--text-muted);
 }
+
+.view-button {
+    border-radius: var(--radius-pill);
+    background: none;
+    border: 1px solid var(--purple);
+    color: var(--purple);
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+    margin-top: 0.75rem;
+}
+
+.view-button:hover {
+    background: var(--purple);
+    color: #ffffff;
+}
+
+.view-button:focus-visible {
+    outline: 2px solid var(--purple);
+    outline-offset: 2px;
+}
