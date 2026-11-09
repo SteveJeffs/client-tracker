@@ -25,7 +25,7 @@ function App() {
     try {
       localStorage.setItem('clients', JSON.stringify(clients))
     } catch {
-
+      // Storage not available, carry on without saving
     }
   }, [clients])
 
