@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './AddClientForm.css'
+import { statusOptions } from '../data/options'
 const addOnOptions = ['Copywriting', 'Domain name', 'Professional email', 'Booking integration', 'Priority build']
 
 const emptyForm = {
@@ -70,10 +71,9 @@ function AddClientForm(props) {
                 value={form.status}
                 onChange={(event) => setForm({ ...form, status: event.target.value })}
             >
-                <option value="Lead">Lead</option>
-                <option value="Building">Building</option>
-                <option value="Live">Live</option>
-                <option value="Cancelled">Cancelled</option>
+                {statusOptions.map((status) => (
+                    <option key={status} value={status}>{status}</option>
+                ))}
             </select>
 
             <label htmlFor="websitePackage">Website Package</label>

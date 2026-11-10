@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { seedClients } from './data/seedClients'
+import { statusOptions } from './data/options'
 import ClientCard from './components/ClientCard'
 import AddClientForm from './components/AddClientForm'
 import ClientDetail from './components/ClientDetail'
@@ -92,10 +93,11 @@ function App() {
       <button className="reset-button" onClick={resetDemo}>Reset demo</button>
       <div className="filters">
         <button className={statusFilter === 'All' ? 'active' : ''} onClick={() => setStatusFilter('All')}>All</button>
-        <button className={statusFilter === 'Lead' ? 'active' : ''} onClick={() => setStatusFilter('Lead')}>Lead</button>
-        <button className={statusFilter === 'Building' ? 'active' : ''} onClick={() => setStatusFilter('Building')}>Building</button>
-        <button className={statusFilter === 'Live' ? 'active' : ''} onClick={() => setStatusFilter('Live')}>Live</button>
-        <button className={statusFilter === 'Cancelled' ? 'active' : ''} onClick={() => setStatusFilter('Cancelled')}>Cancelled</button>
+        {statusOptions.map((status) => (
+          <button key={status} className={statusFilter === status ? 'active' : ''} onClick={() => setStatusFilter(status)}>
+            {status}
+          </button>
+        ))}
       </div>
       <ul className="client-list">
         {visibleClients.map((client) => (

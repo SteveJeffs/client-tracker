@@ -1,0 +1,1 @@
+export const statusOptions = ['Lead', 'Building', 'Live', 'Cancelled']
