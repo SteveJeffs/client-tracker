@@ -99,6 +99,7 @@ function App() {
           </button>
         ))}
       </div>
+      {visibleClients.length === 0 && <p className="empty-message">No clients with this status.</p>}
       <ul className="client-list">
         {visibleClients.map((client) => (
           <ClientCard key={client.id} client={client} onSelect={() => setSelectedId(client.id)} />

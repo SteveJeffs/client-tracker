@@ -83,3 +83,12 @@ main {
   outline: 2px solid var(--purple);
   outline-offset: 2px;
 }
+
+.empty-message {
+  margin-top: 0;
+  color: var(--text-muted);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  text-align: center;
+}
