@@ -86,11 +86,17 @@ function App() {
 
   return (
     <main>
-      <h1>Client tracker</h1>
-      <button className="add-button" onClick={() => setShowForm(true)}>+ Add client</button>
+      <header className="page-header">
+        <h1>Client tracker</h1>
+        <div className="header-actions">
+          <button className="reset-button" onClick={resetDemo}>Reset demo</button>
+          {!showForm && <button className="add-button" onClick={() => setShowForm(true)}>+ Add client</button>}
+        </div>
+
+      </header>
+
       {showForm && <AddClientForm onSave={addClient} onCancel={() => setShowForm(false)} />}
-      <p>Showing: {visibleClients.length} of {clients.length} clients</p>
-      <button className="reset-button" onClick={resetDemo}>Reset demo</button>
+
       <div className="filters">
         <button className={statusFilter === 'All' ? 'active' : ''} onClick={() => setStatusFilter('All')}>All</button>
         {statusOptions.map((status) => (
@@ -99,6 +105,7 @@ function App() {
           </button>
         ))}
       </div>
+      <p>Showing: {visibleClients.length} of {clients.length} clients</p>
       {visibleClients.length === 0 && <p className="empty-message">No clients with this status.</p>}
       <ul className="client-list">
         {visibleClients.map((client) => (
