@@ -20,9 +20,9 @@ function ClientDetail(props) {
 
             <h3>Plan</h3>
             <dl>
-                <dt>Website Package</dt>
+                <dt>Website package</dt>
                 <dd>{props.client.websitePackage}</dd>
-                <dt>Care Plan</dt>
+                <dt>Care plan</dt>
                 <dd>{props.client.carePlanTier}</dd>
                 {props.client.startDate && props.client.carePlanTier !== 'None' && (
                     <>

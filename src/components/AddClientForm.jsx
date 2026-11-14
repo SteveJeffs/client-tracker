@@ -37,7 +37,7 @@ function AddClientForm(props) {
     return (
         <form className="add-client-form" onSubmit={handleSubmit}>
             <h2>{props.title || 'Add a client'}</h2>
-            <p className="form-note">Required</p>
+            <p className="form-note">* Required</p>
 
             <label htmlFor="businessName">
                 Business name <span className="required-mark" aria-hidden="true">*</span> </label>
@@ -57,7 +57,7 @@ function AddClientForm(props) {
                 onChange={(event) => setForm({ ...form, contactName: event.target.value })}
             />
 
-            <label htmlFor="contactNumber">Contact Number</label>
+            <label htmlFor="contactNumber">Contact number</label>
             <input
                 id="contactNumber"
                 type="tel"
@@ -76,7 +76,7 @@ function AddClientForm(props) {
                 ))}
             </select>
 
-            <label htmlFor="websitePackage">Website Package</label>
+            <label htmlFor="websitePackage">Website package</label>
             <select
                 id="websitePackage"
                 value={form.websitePackage}
@@ -113,7 +113,7 @@ function AddClientForm(props) {
                 ))}
             </fieldset>
 
-            <label htmlFor="nextAction">Next Action</label>
+            <label htmlFor="nextAction">Next action</label>
             <input
                 id="nextAction"
                 type="text"

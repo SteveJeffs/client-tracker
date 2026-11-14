@@ -11,7 +11,7 @@ function ClientCard(props) {
 
             <p>{props.client.contactName} · {props.client.contactNumber}</p>
             {props.client.domainRenewalDate && <p className={`renewal-${renewalUrgency(props.client.domainRenewalDate)}`}>Domain: {renewalLabel(props.client.domainRenewalDate)}</p>}
-            <p>Next Action: {props.client.nextAction}</p>
+            <p>Next action: {props.client.nextAction}</p>
             <button className="view-button" onClick={props.onSelect}>View details</button>
 
         </li>
